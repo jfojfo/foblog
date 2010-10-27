@@ -1,0 +1,36 @@
+{% extends theme.base %}
+
+{% block title %} Configuration - {{ config.plog_title }} {% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+<!--
+function ReGeneratePassword(){
+	$.get('{{ settings.app_root }}/admin/regeneratepassword', {rnd : Math.random().toString()}, function(data){
+		$('#password').val(data);
+	});
+}
+//-->
+</script>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+<table>
+{{ config_form }}
+<tr>
+<th>&nbsp;</th>
+<td>
+	<input type="submit" value="Update Settings" />
+</td>
+</tr>
+<tr>
+<th>API Password</th>
+<td>
+	<input type="button" value="Regenerate" onclick="ReGeneratePassword();" />
+	<input type="text" id="password" value="********" />
+</td>
+</tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,369 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: url(images/img01.jpg) repeat-x left top;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	text-align: justify;
+	font-size: 13px;
+	color: #8A7F7F;
+}
+
+h1, h2, h3 {
+	margin-bottom: 1em;
+	font-weight: normal;
+	color: #549DC7;
+}
+
+h1 a, h2 a, h3 a {
+	text-decoration: none;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-size: 20px;
+}
+
+h2 {
+	letter-spacing: -1px;
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1em;
+}
+
+p, ul, ol {
+	margin-bottom: 1.5em;
+	line-height: 180%;
+}
+
+ul, ol {
+	margin-left: 3em;
+}
+
+blockquote {
+	margin-left: 3em;
+	margin-right: 3em;
+}
+
+a, .fakelink {
+	text-decoration: none;
+	color: #E58C43;
+	cursor: pointer;
+}
+
+a:hover .fakelink.hover {
+	background: #CEE7F5;
+	text-decoration: underline;
+	color: #549DC7;
+	cursor: pointer;
+}
+
+/* Logo */
+
+#logo {
+	width: 960px;
+	height: 80px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#logo h1, #logo h2 {
+	float: left;
+	margin: 0;
+	padding-top: 25px;
+	font-size:36px;
+}
+
+#logo h1 a {
+	padding: 0px 0 0 240px;
+	color: #004085;
+}
+
+#logo h1 a:hover {
+	text-decoration: none;
+	background: none;
+
+}
+
+#logo h2 {
+	padding: 38px 0 20px 7px;
+	letter-spacing: normal;
+	font-size: 1.4em;
+}
+
+/* Menu */
+#menu, #login{
+	position:fixed;
+	top:0;
+	background:#333;
+	filter: Alpha(opacity=50);   
+	-moz-opacity:.5;   
+	opacity:0.5;  
+	font-family:"Comic Sans MS";
+	color:#fff;
+}
+#menu{
+	left:0;
+}
+#login{
+	right:0;
+}
+
+#menu ul, menu ol{
+	padding : 0 10px;
+	margin : 0;
+}
+#menu li{
+	list-style:none;
+}
+#menu li a{
+	color:#38d;
+}
+#menu_handle{
+	cursor:pointer;
+	text-align:right;
+	padding : 0 10px;
+}
+#menu_handle:hover{
+	background:#ccc;
+}
+
+/* Page */
+
+#page {
+	width: 960px;
+	margin: 0 auto;
+}
+
+/* Sidebars */
+
+.sidebar {
+	float: left;
+	width: 200px;
+	margin-top: 180px;
+	padding-top: 20px;
+}
+
+.sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.sidebar li {
+	padding-bottom: 30px;
+}
+
+.sidebar li ul {
+}
+
+.sidebar li li {
+	padding: 0;
+	padding-left: 20px;
+	text-align: left;
+	font-size: 12px;
+}
+
+.sidebar h2 {
+	height: 40px;
+	margin: 0;
+	letter-spacing: normal;
+	text-align: left;
+	background: url(images/img06.gif) no-repeat left top;
+	text-transform:lowercase;
+	padding: 5px 0 0 40px;
+	font-size: 20px;
+}
+
+/* Sidebar1 */
+
+#sidebar1 {
+}
+
+#sidebar1 h2 {
+}
+
+#sidebar1 li li {
+}
+
+/* Sidebar2 */
+
+#sidebar2 {
+}
+
+#sidebar2 h2 {
+}
+
+/* Search */
+
+#search {
+}
+
+#search form {
+	text-align: center;
+}
+
+#search #s {
+	width: 95%;
+	margin-bottom: 10px;
+}
+
+#search h2 {
+}
+
+/* Calendar */
+
+#calendar {
+}
+
+#calendar_wrap {
+	padding: 0 20px;
+}
+
+#calendar caption {
+	padding-bottom: 5px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#calendar table {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid #CCCC99;
+}
+
+#calendar thead th {
+	padding: 5px 0;
+	background: #F9F3DF;
+	border-bottom: 1px solid #CCCC99;
+	color: #CCCC99;
+}
+
+#calendar tbody td {
+	padding: 5px 0;
+	border-right: 1px dotted #CCCCCC;
+	border-bottom: 1px dotted #CCCCCC;
+}
+
+#calendar tfoot td {
+	padding: 5px;
+	border-top: 1px solid #CCCC99;
+}
+
+#calendar tfoot a {
+	border: none;
+	font-weight: bold;
+}
+
+#calendar #next {
+	text-align: right;
+}
+
+#calendar #prev {
+	text-align: left;
+}
+
+
+/* Content */
+#page_panel {
+	margin-left : 20px;
+}
+
+#content {
+	float: left;
+	width: 542px;
+	background: url(images/img03.jpg) repeat-y left top;
+}
+
+#content .bgtop {
+	background: url(images/img02.jpg) no-repeat left top;
+}
+
+#content .bgbtm {
+	background: url(images/img04.jpg) no-repeat left bottom;
+	padding: 200px 25px 10px 25px;
+}
+
+.post {
+	padding-bottom: 50px;
+}
+
+.post .title {
+	background: url(images/img07.gif) no-repeat left top;
+	margin: 0 0 0 18px;
+	padding: 0 0 0 40px;
+	line-height:34px;
+}
+
+
+.post h2 {
+}
+
+.post .meta {
+	margin: 0;
+	padding: 0 20px 20px 20px;
+	line-height: normal;
+}
+
+.post .entry {
+	padding: 20px;
+}
+
+.post .tags, .post .links {
+	margin: 0;
+	line-height: normal;
+	font-size: smaller;
+	text-align: center;
+}
+
+.post .tags {
+	padding-top: 10px;
+	border-top: 1px dashed #D9EBFF;
+}
+
+#comments {
+	padding: 10px 25px 10px 45px;
+}
+
+textarea {
+	width:400px;
+	height:250px;
+}
+
+blockquote {
+	white-space: pre;
+	overflow: auto;
+	font-family:"Courier New";
+}
+/* Footer */
+
+#footer {
+	width: 562px;
+	height: 60px;
+	margin: 0 auto;
+	margin-top: 50px;
+	padding: 15px 0;
+	text-align: center;
+	background: url(images/img05.jpg) no-repeat;
+}
+
+#footer p {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	line-height: normal;
+}

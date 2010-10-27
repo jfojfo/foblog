@@ -1,0 +1,22 @@
+{% extends theme.base %}
+{% block title %} {{ post.title }} - {{ config.plog_title|escape }} {% endblock %}
+{% block keywords %}<meta name="keywords" content="{% for tag in post.tags %}{{ tag }}, {% endfor %}{{ config.site_keywords }}" />{% endblock %}
+{% block content %}
+{% include theme.post_item %}
+
+<div id="comments">
+<h3>Comments:</h3>
+{% for comment in comments %}
+{% include theme.comment_item %}
+{% endfor %}
+
+<div class="comment">
+	{% if self.is_login %}
+	{% include theme.newcomment_form %}
+	{% else %}
+	<p>You can leave a comment on this post if you <a href="{{ settings.app_root }}/login">login</a></p>
+	{% endif %}
+</div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,8 @@
+<li id="tags">
+<h2>Tags</h2>
+<ul>
+	{% for tag in tags %}
+	{% if tag.name %}<li><a href="{{ settings.app_root }}/tag/{{ tag.name }}">{{ tag.name }}</a> ({{ tag.count }})</li>{% endif %}
+	{% endfor %}
+</ul>
+</li>

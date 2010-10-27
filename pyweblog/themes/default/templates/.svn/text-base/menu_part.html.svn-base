@@ -1,0 +1,11 @@
+<ul>
+	<li class="first{% ifequal self.current_page "home" %} selected{% endifequal %}"><a href="{{ settings.home_page }}"><span>Home</span></a></li>
+	{% if self.is_admin %}
+	<li{% ifequal self.current_page "new" %} class="selected"{% endifequal %}><a href="{{ settings.app_root }}/admin/newpost"><span>New Post</span></a></li>
+	<li{% ifequal self.current_page "config" %} class="selected"{% endifequal %}><a href="{{ settings.app_root }}/admin/config"><span>Config</span></a></li>
+	<li{% ifequal self.current_page "upload" %} class="selected"{% endifequal %}><a href="{{ settings.app_root }}/admin/filemanager"><span>Upload</span></a></li>
+	<li{% ifequal self.current_page "links" %} class="selected"{% endifequal %}><a href="{{ settings.app_root }}/admin/linkmanager"><span>Links</span></a></li>
+	{% endif %}
+	<li{% ifequal self.current_page "about" %} class="selected"{% endifequal %}><a href="#"><span>About</span></a></li>
+	<br style="clear:both" />
+</ul>

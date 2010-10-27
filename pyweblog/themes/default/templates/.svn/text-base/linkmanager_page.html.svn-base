@@ -1,0 +1,97 @@
+{% extends theme.base %}
+
+{% block title %}Link Manager - {{ config.plog_title }} {% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+// <![CDATA[
+function CheckAll(checked){
+	$('input[@name=linkid]').each(
+			function(){
+				this.checked = checked;
+			}
+			);
+}
+function EditLink(linkid, text, url, description, tags){
+	$('#linkid').val(linkid);
+	$('#action').val('edit');
+	$('#edit_form_title').html("Edit (or <a href='#edit_form_title' onclick='CreateLink();'>Create a New</a>) Link");
+
+	$('#text').val(text);
+	$('#url').val(url);
+	$('#description').val(description);
+	$('#linktags').val(tags);
+}
+function CreateLink(linkid){
+	$('#linkid').val('');
+	$("#action").val('new');
+	$('#edit_form_title').html("Create a New Link");
+
+	$('#text').val('');
+	$('#url').val('http://');
+	$('#description').val('');
+	$('#linktags').val('');
+}
+// ]]>
+</script>
+
+{% endblock %}
+
+{% block content %}
+<!-- {{{ file list -->
+<form action="{{ settings.app_root }}/admin/linkmanager" method="post">
+<table>
+	<tr>
+		<th><input type="checkbox" onchange="CheckAll(this.checked);" /></th>
+		<th>Name</th>
+		<th>URL</th>
+		<th>Tags</th>
+	</tr>
+{% for link in links %}
+	<tr id="link{{ link.key.id }}">
+		<td><input type="checkbox" name="linkid" value="{{ link.key.id }}" /></td>
+		<td><a href="#edit_form_title" onclick="EditLink({{ link.key.id }}, '{{ link.text|addslashes }}', '{{ link.url|addslashes }}', '{{ link.description|addslashes }}', '{{ link.tags|join:", "|addslashes }}');">{{ link.text|escape }}</a></td>
+		<td><a href="{{ link.url }}" target="_blank" title="{{ link.description|escape }}">{{ link.url|escape }}</a></td>
+		{% spaceless %}
+		<td>
+		{% if link.tags %}
+			{% for tag in link.tags %}
+				<a href="{{ settings.app_root }}/admin/linkmanager?tag={{ tag|urlencode }}">
+				{% ifequal tag " " %}
+					<i>None</i>
+				{% else %}
+					{{ tag|escape }}
+				{% endifequal %}
+				</a>
+				{% if not forloop.last %}, {% endif %}
+			{% endfor %}
+		{% endif %}
+		</td>
+		{% endspaceless %}
+	</tr>
+{% endfor %}
+	<tr>
+		<td>&nbsp;</td>
+		<td colspan="2" align="right">
+			<input type="submit" value="Delete Selected Links" onclick="return confirm('Do you really want to delete selected link(s)?');" />
+		</td>
+	</tr>
+</table>
+<input type="hidden" name="action" value="delete" />
+</form>
+<!-- }}} -->
+<div>
+	<strong id="edit_form_title">Create a New Link</strong>
+</div>
+<!-- {{{ file upload -->
+<form action="{{ settings.app_root }}/admin/linkmanager" method="post">
+	<input type="hidden" id="linkid" name="linkid" />
+	<input type="text" id="text" name="text" /><label for="text">Name for displaying</label><br />
+	<input type="text" id="url" name="url" value="http://" /><label for="url">URL of the link</label><br />
+	<input type="text" id="description" name="description" /><label for="description">Description for the link</label><br />
+	<input type="text" id="linktags" name="linktags" /><label for="linktags">Tags of the link</label><br />
+	<input type="hidden" id="action" name="action" value="new" />
+	<input type="submit" value="Save" />
+</form>
+<!-- }}} -->
+{% endblock %}

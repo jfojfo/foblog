@@ -1,0 +1,20 @@
+<form id="editpost" method="post">
+	<label for="title">Title:</label> <br />
+	<input name="title" id="title" maxlength="100" value="{{ post.title|escape }}" />
+	<label for="slug">Slug(a URL-friendly name):</label> <br />
+	<input name="slug" id="slug" maxlength="100" value="{{ post.slug|default:""|escape }}" />
+	<br />
+	<label for="tags">Tags:</label> <br />
+	<input name="tags" id="tags" maxlength="100" value="{% for tag in post.tags %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}" />
+	<br />
+	<label for="post_content">Content:</label> <br />
+	<textarea name="post_content" id="post_content">{{ post.content|escape }}</textarea>
+	<br />
+	<label for="type">Type:</label> <br />
+	<select name="type" id="type">
+		<option value="post"{% ifequal post.type "post" %} selected="selected"{% endifequal %}>post</option>
+		<option value="page"{% ifequal post.type "page" %} selected="selected"{% endifequal %}>page</option>
+	</select>
+	<br />
+	<input type="submit" value="Submit Changes" />
+</form>

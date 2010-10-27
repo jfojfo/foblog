@@ -1,0 +1,264 @@
+/* Designed By Kommit */
+body {
+	background:#F8F8F8 none repeat scroll 0% 0%;
+	color:#35383D;
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:14px;
+	margin:0px;
+	padding:0px;
+}
+
+html {
+	margin:0pt;
+	padding:0pt;
+}
+
+form {
+	margin:0px;
+	padding:0px;
+}
+
+h1, h2, h3, h4 {
+	font-family:"Comic Sans MS",Arial,Helvetica,sans-serif;
+}
+
+
+input, textarea, select {
+	background-color:#F0F0Fa;
+	border:1px solid #C1C0B5;
+	color:#333333;
+	font-family:"Lucida Sans Unicode",Tahoma,Arial,sans-serif;
+	font-size:1em;
+}
+
+#wrapper {
+	margin : 0 auto;
+	width : 900px;
+	background-color : #fff;
+	text-align : left;
+	border : 1px solid #ccc;
+	position : relative;
+}
+
+#header {
+	background-color : #58c;
+	color : #fff;
+}
+
+#header a:hover{
+	background-color : #58c;
+}
+
+#header h1 {
+	font-family:"Lucida Sans Unicode",Tahoma,Arial,sans-serif;
+	margin : 0;
+	padding : 15px 15px 0 15px;
+	font-size : 40px;
+}
+
+#header h1 a{
+	color : #fff;
+}
+
+#header h2 {
+	margin : 0;
+	padding : 0 0 20px 20px;
+	font-size : 15px;
+}
+
+#login {
+	position : absolute;
+	right : 0;
+	top 0;
+}
+
+#menu {
+	text-align : right;
+	margin : 3px;
+}
+
+#menu ul{
+	padding : 0;
+}
+
+#menu li{
+	float : left;
+	list-style : none;
+}
+
+#menu li a{
+	background : #58c;
+	color : #fff;
+	margin : 3px;
+	padding : 3px 7px;
+}
+#menu li a:hover, #menu .selected{
+	background : #fff;
+	color : #000;
+}
+
+#content {
+	float : left;
+	width : 670px;
+}
+
+div.sidebar {
+	float : left;
+	width : 220px;
+}
+
+#footer {
+	clear : both;
+	text-align : center;
+	font-size : 80%;
+	background-color : #58c;
+}
+
+#footer a {
+	color : #fff;
+}
+
+#page_panel {
+	margin : 0 20px 0 20px;
+	padding : 2px;
+}
+
+th {
+	vertical-align : top;
+}
+
+div.post {
+	border-bottom : 1px dotted;
+	margin : 0 20px 0 20px;
+	padding : 2px;
+}
+
+div.tags {
+	font-size : 10px;
+	margin-bottom : 10px;
+	font-style : italic;
+}
+div.tags a {
+	color : #999;
+}
+
+div.comment {
+	background-color : #ddd;
+	margin : 10px 20px 0 60px;
+	border-bottom : 1px dotted;
+	padding: 10px;
+}
+
+.title {
+	font-size : 20px;
+	margin-bottom : 3px;
+}
+.date {
+	font-family : georgia;
+}
+
+/* {{{ link */
+a, .fakelink {
+	color : #55f;
+	text-decoration : none;
+	cursor : pointer;
+}
+
+a:hover, .fakelink:hover {
+	background-color : #ddd;
+}
+
+/* }}} */
+
+
+textarea {
+	width : 430px;
+	height : 350px;
+}
+#title {
+	width : 430px;
+}
+
+
+table {
+	font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+}
+
+th {
+	padding: 0 0.5em;
+	text-align: left;
+	border-bottom: 1px solid #CCC;
+}
+
+tr.yellow td {
+	border-top: 1px solid #FB7A31;
+	border-bottom: 1px solid #FB7A31;
+	background: #FFC;
+}
+
+td {
+	border-bottom: 1px solid #CCC;
+	padding: 0 0.5em;
+}
+
+.postinfo, .commentinfo {
+	font-size : 10px;
+	text-align : right;
+	padding-bottom : 0;
+	margin-bottom : 0;
+	font-style : italic;
+}
+blockquote {
+	border: 1px solid lightgrey; 
+	padding: 5px;
+	display: block;
+	white-space: pre;
+	overflow: auto;
+	font-size: 8pt
+}
+
+/* {{{ Widgets */
+.sidebar ul {
+	padding : 0;
+	margin : 0;
+}
+.sidebar li {
+	width : 200px;
+	margin-top : 30px;
+	margin-bottom : 30px;
+	font-size : 12px;
+	list-style : none;
+}
+
+.sidebar li h2{
+	background-color : #ccf;
+	color : #000;
+	font-weight : normal;
+	border-bottom : 1px solid #999;
+	font-family : Tahoma, Arial;
+	font-size : 14px;
+	padding-top : 5px;
+	text-transform:uppercase;
+}
+
+.sidebar li ul {
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+
+.sidebar li li {
+	border-bottom : 1px dotted #666;
+	display : block;
+	padding-top : 6px;
+	margin:0;
+	background-color : #f8f8ff;
+}
+.sidebar li li:hover {
+	background-color : #fff;
+}
+
+/* }}} */

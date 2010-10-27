@@ -1,0 +1,56 @@
+<html>
+  <head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript" src="/scripts/jquery.js"></script>
+        <script type="text/javascript">
+            function showLocation(id, lnk) {
+                $.get(lnk, {},
+                    function(data){
+                        $("#"+id).html("" + data);
+                    });
+            }
+            function showAllLocation() {
+                $('a[name=loc]').each(
+                        function() {
+                            $(this).click();
+                        }
+                );
+            }
+        </script>
+  </head>
+<body>
+	<table cols="4">
+	<thead>
+		<tr>
+			<th width="180" align="left"><a href='?order=byip'>IP</a></th>
+			<th width="500" align="left"><a href='?order=byip'>URI</a></th>
+			<th width="300" align="right"><a href='?order=bydate'>access time</a></th>
+                        <th width="200"><a onclick='showAllLocation();'>Location</a></th>
+			<th width="80"></th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for ip in ips %}
+		<tr>
+			<td>{{ip.ip|escape}}</td>
+			<td>{{ip.uri|escape}}</td>
+			<td align="right">{{ip.atime|date:"Y-m-d H:i:s"}}</td>
+                        <td align="center">
+                            <a name="loc" onclick='showLocation("loc_{{ip.key.id}}", "/track_ip/L?ip={{ip.ip|escape}}");'>
+                                <i id="loc_{{ip.key.id}}">Show Location</i>
+                            </a>
+                        </td>
+			<td align="right"><a href='/track_ip/delete?id={{ip.key.id}}'><I>delete</I></a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+	</table>
+	<br>
+
+	<form action="/track_ip/clear" method="get">
+		<div>
+			<input type="submit" value="Delete All Records">
+		</div> 
+	</form>
+</body>
+</html>

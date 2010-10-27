@@ -1,0 +1,8 @@
+{% extends theme.base %}
+{% block title %} Page Not Found - {{ post.title }} {% endblock %}
+{% block keywords %}<meta name="keywords" content="{% for tag in post.tags %}{{ tag }}, {% endfor %}{{ config.site_keywords }}" />{% endblock %}
+{% block content %}
+Sorry, we didn't find your requested resouce:<br />
+<i>{{ url|escape }}</i><br />
+on server.
+{% endblock %}

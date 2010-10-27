@@ -1,0 +1,8 @@
+<li>
+	<h2>Recent Posts</h2>
+	<ul>
+		{% for post in recent_posts %}
+		<li><a href="{{ settings.app_root }}/post/{{ post.key.id }}">{{ post.title }}</a></li>
+		{% endfor %}
+	</ul>
+</li>

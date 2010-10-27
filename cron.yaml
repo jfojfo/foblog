@@ -1,0 +1,13 @@
+cron:
+
+- description: cron jobs
+  url: /ccluckcheck
+  schedule: every 10 minutes
+
+#every 5 minutes
+#every 12 hours
+#2nd,third mon,wed,thu of march 17:00
+#every monday 09:00
+#1st monday of sep,oct,nov 17:00
+#every day 00:00
+

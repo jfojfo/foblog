@@ -1,0 +1,36 @@
+{% extends theme.base %}
+
+{% block title %} Wish Wall - {{ config.plog_title|escape }} {% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/scripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/scripts/ui.core.js"></script>
+<script type="text/javascript" src="/scripts/ui.draggable.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<!--div id="box1" style="background-color: yellow; padding: 5px; border: 2px solid orange; width: 200px;"-->
+<div id="wish">
+{% for wish in wishes %}
+    <script type="text/javascript">
+    $(function(){
+        $("#{{ wish.id }}").draggable();
+        $("#{{ wish.id }}").bind('dragstop', function(e, ui){
+            //alert("ui.mouse.x");
+        });
+    });
+    </script>
+
+    <!--div id="{{ wish.id }}" class="test">{{ wish.id }}</div-->
+    <div id="{{ wish.id }}" class="wish" style="top:200px;left:300px"><ul>
+        <li class="header" id="handler{{wish.id}}">{{ wish.name }}</li>
+        <li class="content">{{ wish.content }}</li>
+        <li class="footer">{{ wish.date }}</li>
+    </ul></div>
+
+{% endfor %}
+</div>
+
+{% endblock %}
+

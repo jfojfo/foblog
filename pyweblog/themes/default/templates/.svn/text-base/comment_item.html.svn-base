@@ -1,0 +1,16 @@
+<div class="comment" id="c{{ comment.key.id }}">
+	<div class="entry">{{ comment.content|escape|linebreaksbr }}</div>
+	<p class="meta">
+	{% ifequal comment.author self.login_user %}
+	<span class="fakelink" onclick="DeleteComment('{{ comment.key.id }}')">Delete</span>
+	<!-- | Edit -->
+	{% else %}
+	{% if self.is_admin %}
+	<span class="fakelink" onclick="DeleteComment('{{ comment.key.id }}')">Delete</span>
+	<!-- | Edit -->
+	{% endif %}
+	{% endifequal %}
+	<span class="date"> {{ comment.date|timezone:8|date:"Y-m-d H:i:s" }}</span>
+	by <span class="author">{{ comment.author_with_url }}</span>
+	</p>
+</div>

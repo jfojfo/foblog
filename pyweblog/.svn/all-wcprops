@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 23
+/svn/!svn/ver/160/trunk
+END
+app.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/150/trunk/app.yaml
+END
+plog.py
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/159/trunk/plog.py
+END
+index.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/159/trunk/index.yaml
+END
+favicon.ico
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/145/trunk/favicon.ico
+END

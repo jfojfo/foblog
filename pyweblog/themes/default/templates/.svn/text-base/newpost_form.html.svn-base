@@ -1,0 +1,20 @@
+<form id="newpost" action="{{ settings.app_root }}/admin/newpost" method="post">
+	<label for="title">Title:</label> <br />
+	<input name="title" id="title" maxlength="100" /> <br />
+	<label for="slug">Slug(a URL-friendly name):</label> <br />
+	<input name="slug" id="slug" maxlength="100" />
+	<br />
+	<label for="tags">Tags:</label> <br />
+	<input name="tags" id="tags" maxlength="100" />
+	<br />
+	<label for="post_content">Content:</label> <br />
+	<textarea name="post_content" id="post_content"></textarea>
+	<br />
+	<label for="type">Type:</label> <br />
+	<select name="type" id="type">
+		<option value="post" selected="selected">post</option>
+		<option value="page">page</option>
+	</select>
+	<br />
+	<input type="submit" value="Submit Post" />
+</form>

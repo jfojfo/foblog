@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#pulog_upload_dlg.title}</title>
+    <script type="text/javascript" src="/scripts/jquery.js"></script>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+    <script type="text/javascript">
+    // <![CDATA[
+    function SplitFile()
+    {
+        var file = $("#upfile").val();
+        if(!file){
+            return false;
+        }
+        file = file.replace(/\\/g, "/");
+        var parts = file.split("/");
+        var filename = parts[parts.length - 1];
+
+        var bits = filename.split(".");
+        var ext = bits[bits.length - 1];
+
+        $("#filename").val(filename);
+        $("#fileext").val(ext.toLowerCase());
+        return true;
+    }
+    // ]]>
+    </script>
+</head>
+<body>
+
+<form action="/admin/upload" method="post" enctype="multipart/form-data">
+    <h3><strong>Upload a file</strong></h3>
+    <input type="file" id="upfile" name="upfile" size="45" />
+    <input type="hidden" id="filename" name="filename" />
+    <input type="hidden" id="fileext" name="fileext" />
+    <input type="submit" value="Upload" onclick="return SplitFile();" />
+
+	<div class="mceActionPanel">
+		<div style="float: left">
+			<!--input type="button" id="insert" name="insert" value="{#insert}" onclick="UploadDialog.insert();" /-->
+		</div>
+
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		</div>
+	</div>
+</form>
+
+</body>
+</html>

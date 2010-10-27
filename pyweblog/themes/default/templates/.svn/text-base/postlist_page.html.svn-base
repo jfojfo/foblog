@@ -1,0 +1,30 @@
+{% extends theme.base %}
+
+{% block title %}{% if tag %}Tag: {{ tag }} - {% endif %}{{ config.plog_title }} {% endblock %}
+
+{% block feed %}
+{% if tag %}
+	<link rel="alternate" type="application/rss+xml" title="{{ config.plog_title }} >> tag: {{ tag }}" href="{{ config.default_host }}{{ settings.app_root }}/feed?tag={{ tag }}" />
+{% endif %}
+	<link rel="alternate" type="application/rss+xml" title="{{ config.plog_title }}" href="{{ config.default_host }}{{ settings.app_root }}/feed" />
+{% endblock %}
+
+{% block content %}
+{% for post in posts %}
+{% include theme.post_item %}
+{% endfor %}
+{% if show_page_panel %}
+<br />
+<div id="page_panel">
+{% if show_prev %}
+<a href="{{ settings.app_root }}/{% if tag %}tag/{{ tag }}/{% endif %}page/{{ prev }}"><span style="font-size:9px;">&lt;&lt;</span> PREV</a>
+{% endif %}
+{% if show_prev and show_next %}
+-
+{% endif %}
+{% if show_next %}
+<a href="{{ settings.app_root }}/{% if tag %}tag/{{ tag }}/{% endif %}page/{{ next }}">NEXT <span style="font-size:9px;">&gt;&gt;</span></a>
+{% endif %}
+</div>
+{% endif %}
+{% endblock %}

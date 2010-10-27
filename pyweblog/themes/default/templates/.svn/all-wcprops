@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/156/trunk/themes/default/templates
+END
+recentposts_widget.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/147/trunk/themes/default/templates/recentposts_widget.html
+END
+viewpost_page.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/147/trunk/themes/default/templates/viewpost_page.html
+END
+error_404_page.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/148/trunk/themes/default/templates/error_404_page.html
+END
+postlist_page.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/147/trunk/themes/default/templates/postlist_page.html
+END
+header_part.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/147/trunk/themes/default/templates/header_part.html
+END
+editpost_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/156/trunk/themes/default/templates/editpost_form.html
+END
+comment_item.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/106/trunk/themes/default/templates/comment_item.html
+END
+newpost_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/156/trunk/themes/default/templates/newpost_form.html
+END
+links_widget.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/154/trunk/themes/default/templates/links_widget.html
+END
+footer_part.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/103/trunk/themes/default/templates/footer_part.html
+END
+linkmanager_page.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/155/trunk/themes/default/templates/linkmanager_page.html
+END
+editpost_page.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/144/trunk/themes/default/templates/editpost_page.html
+END
+recentcomments_widget.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/147/trunk/themes/default/templates/recentcomments_widget.html
+END
+menu_part.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/153/trunk/themes/default/templates/menu_part.html
+END
+newcomment_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/147/trunk/themes/default/templates/newcomment_form.html
+END
+tags_widget.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/147/trunk/themes/default/templates/tags_widget.html
+END
+config_page.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/147/trunk/themes/default/templates/config_page.html
+END
+post_item.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/147/trunk/themes/default/templates/post_item.html
+END
+filemanager_page.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/147/trunk/themes/default/templates/filemanager_page.html
+END
+base.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/147/trunk/themes/default/templates/base.html
+END

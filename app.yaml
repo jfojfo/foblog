@@ -1,0 +1,39 @@
+application: jfo
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /scripts
+  static_dir: pyweblog/scripts
+
+# google sitemap
+- url: /(google8b661069d979506e\.html)
+  static_files: pyweblog/static/sitemap/\1
+  upload: pyweblog/static/sitemap/(.*)
+
+# google friend connect
+- url: /(rpc_relay\.html|canvas\.html)
+  static_files: pyweblog/static/friendconnect/\1
+  upload: pyweblog/static/friendconnect/(.*)
+
+- url: /static
+  static_dir: pyweblog/static
+
+- url: /favicon\.ico
+  static_files: pyweblog/favicon.ico
+  upload: pyweblog/favicon.ico
+
+- url: /animated_favicon1\.gif
+  static_files: pyweblog/animated_favicon1.gif
+  upload: pyweblog/animated_favicon1.gif
+
+
+- url: /gappproxy/.*
+  script: gappproxy/fetch.py
+
+
+- url: /.*
+  script: pyweblog/plog.py
+

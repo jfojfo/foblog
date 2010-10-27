@@ -1,0 +1,25 @@
+<div class="post" id="p{{ post.key.id }}">
+	<h1 class="title"><a href="{{ settings.app_root }}/post/{{ post.key.id }}">{{ post.title|escape }}</a></h1>
+	<p class="meta">
+		<small>
+			<span class="date"> {{ post.date|timezone:8|date:"Y-m-d H:i:s" }}</span>
+			<span class="author">by {{ post.author }}</span>
+		</small>
+	</p>
+	<div class="entry">{{ post.content }}</div>
+	{% if post.tags %}
+	<p class="tags">
+		Tags:
+	{% for tag in post.tags %}
+	<a href="{{ settings.app_root }}/tag/{{ tag }}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+	{% endfor %}
+	</p>
+	{% endif %}
+	<p class="links">
+	<span><a href="{{ settings.app_root }}/post/{{ post.key.id }}#comments">{{ post.comment_count_disp }}</a></span>
+		{% if self.is_admin %}
+		| <span class="fakelink" onclick="DeletePost('{{ post.key.id }}')">Delete</span>
+		| <span class="fakelink" onclick="EditPost('{{ post.key.id }}')">Edit</span>
+		{% endif %}
+	</p>
+</div>

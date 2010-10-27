@@ -1,0 +1,14 @@
+LEAVE A COMMENT
+<form id="newcomment" action="{{ settings.app_root }}/newcomment" method="post">
+	<input name="email" id="email" disabled="disabled" style="color:gray;" value="{{ self.user.user.email }}" />
+	<label for="email" style="font-size:70%">Your Google Account (will not be published)</label> <br />
+	<input name="nick" id="nick" value="{{ self.user|escape }}" maxlength="30" />
+	<label for="nick" style="font-size:70%">Nick</label> <br />
+	<input name="site" id="site" value="{{ self.user.website|default:"http://"|escape }}" />
+	<label for="site" style="font-size:70%">Website</label> <br />
+	<b style="font-size:70%">Note: Changing of your nick and website will affect your previous comments</b><br />
+	<textarea name="comment_content" id="comment_content"></textarea>
+	<input type="hidden" name="postid" id="postid" value="{{ post.key.id }}" />
+	<br />
+	<input type="submit" value="Submit Comment" />
+</form>

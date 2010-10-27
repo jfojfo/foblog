@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#pulog_upload_dlg.title}</title>
+        <script type="text/javascript" src="/scripts/jquery.js"></script>
+	<script type="text/javascript" src="/scripts/tiny_mce/tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="/scripts/tiny_mce/plugins/pulog_upload/js/dialog.js"></script>
+        <script type="text/javascript">
+        function SplitFile()
+        {
+                var file = $("#upfile").val();
+                if(!file){
+                        return false;
+                }
+                file = file.replace(/\\/g, "/");
+                var parts = file.split("/");
+                var filename = parts[parts.length - 1];
+
+                var bits = filename.split(".");
+                var ext = bits[bits.length - 1];
+
+                $("#filename").val(filename);
+                $("#fileext").val(ext.toLowerCase());
+                return true;
+        }
+        </script>
+</head>
+<body>
+
+{% ifequal finished "finished" %}
+    <script type="text/javascript">
+        UploadDialog.close();
+    </script>
+{% else %}
+<div>
+<h3><strong>Upload your files</strong></h3>
+<form action="{{ settings.app_root }}/admin/uploadpic" method="post" enctype="multipart/form-data" >
+	<input type="file" id="upfile" name="upfile" size="45" />
+	<input type="hidden" id="filename" name="filename" />
+	<input type="hidden" id="fileext" name="fileext" />
+	<input type="submit" value="Upload" onclick="return SplitFile();" />
+</form>
+<br />
+
+{% for image in images %}
+<div>
+    <div>
+        <a href="{{image.get_thumb_url}}"><img height=320 src="{{ image.get_thumb_url }}" title="{{ image.title }}" /></a><br />
+    </div>
+    <div>
+        <input type="button" id="insert" name="insert" value="{#insert}" 
+        onclick="UploadDialog.insert('{{image.get_thumb_url}}', '{{ image.title}}', '{{ image.get_thumb_url }}');" />
+    </div>
+    <br />
+</div>
+{% endfor %}
+<br />
+
+<form action="{{ settings.app_root }}/admin/uploadpic" method="get">
+    <input type="hidden" id="finished" name="finished" value="finished" />
+    <input type="submit" id="cancel" name="cancel" value="finish" />
+</form>
+</div>
+{% endifequal %}
+</body>
+</html>

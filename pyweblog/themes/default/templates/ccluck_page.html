@@ -1,0 +1,119 @@
+{% extends theme.base %}
+
+{% block title %} cc Luck - {{ config.plog_title|escape }} {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="/scripts/calendar/css/forms.css" />
+<link rel="stylesheet" type="text/css" href="{{ theme.dir }}/style.css" />
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    function gettext(text) {
+        return text;
+    }
+</script>
+<script type="text/javascript" src="/scripts/calendar/core.js"></script>
+<script type="text/javascript" src="/scripts/calendar/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/scripts/calendar/calendar.js"></script>
+<script type="text/javascript" src="/scripts/calendar/DateTimeShortcuts.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<h2>What's ccLuck?</h2>
+<p>Have you ever experenced such kind of situation that you want to say some words to somebody, but 
+thay are just not allowd for all kinds of reasons.</p>
+<p>Now <b>ccLuck</b> helps you, just leave a <i>wishing luck</i> here, and they will be sent atomatically 
+to the person whom you want to talk to if you didn't login within weeks.</p>
+<p>This great idea came from <b>CiCi</b> :)</p>
+<p>Login to have your personal Whishing Lucks.</p>
+<p> anybody help me make this easier to understand? :) </p>
+
+<!--a href="javascript:DateTimeShortcuts.handleCalendarQuickLink(0, 0);">Today</a>
+<a href="javascript:DateTimeShortcuts.openCalendar(0);" id="calendarlink0"><img src="/scripts/calendar/image/icon_calendar.gif" alt="Calendar"/></a-->
+<br />
+<h2>Wishing luck list:</h2>
+<table>
+    <tr>
+        <th>Status</th>
+        <th>To</th>
+        <th width=200 align=center>Wishing Luck</th>
+        <th>From</th>
+        <th>Dead Line</th>
+        <th><a href="{{ settings.app_root }}/ccluck?del=all">Del All</a></th>
+    </tr>
+{% for luck in lucks %}
+    <tr>
+        <td>{{ luck.status }}</td>
+        <td>{{ luck.to }}</td>
+        <td align=center><i>{{ luck.content }}</i></td>
+        <td>{{ luck.fr }}</td>
+        <td>{{ luck.deadtime|timezone:8|date:"Y-m-d h:i" }}</td>
+        <td align=right><a href="{{ settings.app_root }}/ccluck?del={{ luck.key.id }}">delete</a></td>
+    </tr>
+{% endfor %}
+</table>
+<br />
+<h2>Add a wishing luck:</h2>
+<!--form action="{{ settings.app_root }}/ccluck" method="post" enctype="multipart/form-data">
+    <label for="sendto">Send to:</label>
+    <input name="sendto" id="sendto" maxlength="100" style="width:300px;" />(email) <br />
+
+    <label for="deadline">Dead line:</label>
+    <input id="date" type="text" class="vDateField" name="deadline" size="10" value="jj" /> <br />
+    <input id="time" type="text" class="vTimeField" name="deadline" size="10" />
+    <br />
+
+    <label for="sendwhat" style="vertical-align:top;">Content:</label>
+    <textarea name="sendwhat" id="sendwhat" style="width:400px; height:200px;"></textarea> <br />
+
+    <br />
+    <input type="submit" value="add" style="margin-left:66px;" />
+</form-->
+
+<form action="{{ settings.app_root }}/ccluck" method="post" enctype="multipart/form-data">
+    <table cols="2">
+        <tr>
+            <td><label for="sendto">Send to:</label></td>
+            <td><input name="sendto" id="sendto" maxlength="100" style="width:300px;" />(email)</td>
+        </tr>
+        <!--tr>
+            <td><label for="deadline">Dead line:</label></td>
+            <td><input id="deadline_date" type="text" class="vDateField" name="deadline_date" size="10" /></td>
+                <script type="text/javascript">
+                    var date_box = document.getElementById("deadline_date");
+                    var d = new Date();
+                    date_box.value = d.getISODate();
+                </script>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="deadline_time" type="text" class="vTimeField" name="deadline_time" size="10" /></td>
+                <script type="text/javascript">
+                    var time_box = document.getElementById("deadline_time");
+                    var d = new Date();
+                    time_box.value = d.getHourMinuteSecond();
+                </script>
+        </tr-->
+        <tr>
+            <td><label for="days">Time:</label></td>
+            <td><input id="days" type="text" name="days" size=6>days without login, this wish will be sent out!</td>
+                <script type="text/javascript">
+                    var days_box = document.getElementById("days");
+                    days_box.value = 7;
+                </script>
+        </tr>
+        <tr>
+            <td><label for="sendwhat" style="vertical-align:top;">Content:</label></td>
+            <td><textarea name="sendwhat" id="sendwhat" style="width:400px; height:200px;"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="add" style="margin-left:5px;" /></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}
+

@@ -1,0 +1,68 @@
+{% extends theme.base %}
+
+{% block title %}Upload File Manager - {{ config.plog_title }} {% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+// <![CDATA[
+function SplitFile()
+{
+	var file = $("#upfile").val();
+	if(!file){
+		return false;
+	}
+	file = file.replace(/\\/g, "/");
+	var parts = file.split("/");
+	var filename = parts[parts.length - 1];
+
+	var bits = filename.split(".");
+	var ext = bits[bits.length - 1];
+
+	$("#filename").val(filename);
+	$("#fileext").val(ext.toLowerCase());
+	return true;
+}
+// ]]>
+</script>
+
+{% endblock %}
+
+{% block content %}
+<!-- {{{ file list -->
+<form action="{{ settings.app_root }}/admin/filemanager" method="post">
+<table>
+	<tr>
+		<th>File Name</th>
+		<th>Size</th>
+		<th>Upload Date</th>
+		<th>Del</th>
+	</tr>
+{% for file in files %}
+	<tr>
+		<td><a href="{{ settings.app_root }}/upload/{{ file.name }}">{{ file.orig_name|escape }}</a></td>
+		<td align="right">{{ file.data|length }}</td>
+		<td>{{ file.date|timezone:8|date:"Y-m-d H:i:s" }}</td>
+		<td><input type="checkbox" name="del" value="{{ file.key.id }}" /></td>
+	</tr>
+{% endfor %}
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td colspan="2" align="right">
+			<input type="submit" value="Delete Selected Files" onclick="return confirm('Do you really want to delete selected files?');" />
+		</td>
+	</tr>
+</table>
+</form>
+<!-- }}} -->
+<br />
+<strong>Upload a file</strong>
+<!-- {{{ file upload -->
+<form action="{{ settings.app_root }}/admin/upload" method="post" enctype="multipart/form-data">
+	<input type="file" id="upfile" name="upfile" />
+	<input type="hidden" id="filename" name="filename" />
+	<input type="hidden" id="fileext" name="fileext" />
+	<input type="submit" value="Upload" onclick="return SplitFile();" />
+</form>
+<!-- }}} -->
+{% endblock %}
