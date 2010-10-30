@@ -859,6 +859,11 @@ class ccCheckTimeoutHandler(PlogRequestHandler):
 class ProjectHandler(PlogRequestHandler):
     pass
 
+class GameHandler(PlogRequestHandler):
+    def get(self):
+        self.current_page = "game"
+        self.render(self.theme.game_page)
+
 class TestHandler(PlogRequestHandler):
     def get(self):
         msg = mail.EmailMessage()
@@ -917,6 +922,7 @@ def regenerate_url_mapping():
             ('%s/ccluckcheck' % settings.app_root, ccCheckTimeoutHandler),
             ('%s/page/\\d+' % settings.app_root, ViewPost),
             ('%s/project' % settings.app_root, ProjectHandler),
+            ('%s/game' % settings.app_root, GameHandler),
             ('%s/test' % settings.app_root, TestHandler),
             ]
 

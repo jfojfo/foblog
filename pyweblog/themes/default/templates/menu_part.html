@@ -8,6 +8,7 @@
 	<li{% ifequal self.current_page "links" %} class="selected"{% endifequal %}><a href="{{ settings.app_root }}/admin/linkmanager"><span>Links</span></a></li>
 	{% endif %}
 	<li{% ifequal self.current_page "project" %} class="selected"{% endifequal %}><a href="{{ settings.app_root }}/project"><span>Project</span></a></li>
+	<li{% ifequal self.current_page "game" %} class="selected"{% endifequal %}><a href="{{ settings.app_root }}/game"><span>Game</span></a></li>
 	<li{% ifequal self.current_page "about" %} class="selected"{% endifequal %}><a href="#"><span>About</span></a></li>
 	<br style="clear:both" />
 </ul>

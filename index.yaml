@@ -24,25 +24,21 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
-# Unused in query history -- copied from input.
 - kind: Comment
   properties:
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: Comment
   properties:
   - name: post
   - name: date
 
-# Unused in query history -- copied from input.
 - kind: Link
   properties:
   - name: tags
   - name: text
 
-# Unused in query history -- copied from input.
 - kind: Post
   properties:
   - name: __searchable_text_index
@@ -50,53 +46,45 @@ indexes:
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: Post
   properties:
   - name: __searchable_text_index
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: Post
   properties:
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: Post
   properties:
   - name: pub_type
   - name: date
     direction: desc
 
-# Used 62 times in query history.
 - kind: Post
   properties:
   - name: type
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: Tag
   properties:
   - name: count
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: UploadFile
   properties:
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: ccLuck
   properties:
   - name: fr
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: ccLuck
   properties:
   - name: fr=

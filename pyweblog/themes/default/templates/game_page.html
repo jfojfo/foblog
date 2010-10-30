@@ -1,0 +1,9 @@
+{% extends theme.base %}
+
+{% block title %} Game - {{ config.plog_title|escape }} {% endblock %}
+
+{% block content %}
+<embed type="application/x-shockwave-flash"
+    width="800" height="600" 
+    src="flash/dice.swf"/>
+{% endblock %}
