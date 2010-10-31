@@ -857,12 +857,26 @@ class ccCheckTimeoutHandler(PlogRequestHandler):
         self.redirect('%s/ccluck' % settings.app_root)
 
 class ProjectHandler(PlogRequestHandler):
-    pass
+    def get(self):
+        self.response.out.write("Constructing ...")
 
 class GameHandler(PlogRequestHandler):
     def get(self):
         self.current_page = "game"
-        self.render(self.theme.game_page)
+        game = self.param("game")
+        if not game:
+            self.render(self.theme.game_page)
+        else:
+            self.template_values.update({
+                'game': "game/" + game,
+            })
+            if game.endswith("swf"):
+                self.render(self.theme.game_item_flash)
+            elif game.endswith("html") or game.endswith("htm"):
+                #self.render(self.theme.game_item_html)
+                self.redirect('%s/game/%s' % (settings.app_root, game))
+            else:
+                self.error_404();
 
 class TestHandler(PlogRequestHandler):
     def get(self):

@@ -1,0 +1,18 @@
+{% extends theme.base %}
+
+{% block title %} Game - {{ config.plog_title|escape }} {% endblock %}
+
+{% block content %}
+
+<script language="JavaScript">
+$(document).ready(function() {
+    $("#search").remove();
+    $("#sidebar1").remove();
+    $("#sidebar2").remove();
+    $("#content").css("float", "none");
+});
+</script>
+
+<iframe src ="{{game}}" width="200%" height="700" />
+
+{% endblock %}

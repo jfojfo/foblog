@@ -21,8 +21,8 @@ handlers:
 - url: /static
   static_dir: pyweblog/static
 
-- url: /flash
-  static_dir: pyweblog/static/flash
+- url: /game
+  static_dir: pyweblog/static/game
 
 - url: /favicon\.ico
   static_files: pyweblog/favicon.ico
